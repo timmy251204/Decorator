@@ -61,6 +61,15 @@ def fibonacci(n):
         return 1
     return fibonacci(n - 1) + fibonacci(n - 2)
 
+def fib_with_cache(n):
+    if n in fib_with_cache.cache:
+        return fib_with_cache.cache[n]
+    if n in (1, 2):
+        fib_with_cache.cache[n] = 1
+        return 1
+    fib_with_cache.cache[n] = fib_with_cache.cache(n - 1) + fib_with_cache.cache(n - 2)
+    return fib_with_cache.cache[n]
+fib_with_cache.cache = {}
 
 
 
